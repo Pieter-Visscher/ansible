@@ -1,0 +1,13 @@
+- hosts: DNS 
+  become: yes
+  tasks: 
+   - include_vars: ../vars/deployment.yml
+
+   - name: make dns entry in pihole
+     shell: echo {{ ipadr2 }} {{ hostname }} >> /etc/pihole/custom.list
+      
+   - name: restart pihole 
+     ansible.builtin.service:
+       name: pihole-FTL
+       state: restarted
+

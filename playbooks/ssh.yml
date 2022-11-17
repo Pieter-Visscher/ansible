@@ -1,0 +1,11 @@
+- hosts: all
+  become: yes
+  tasks:
+  
+  - include_vars: ../vars/deployment.yml
+
+  - name: clear authorized keys for root
+    shell: cat /dev/null > /root/.ssh/authorized_keys
+
+  - name: paste key from ../ssh/pieter@debian.key
+    shell: echo {{ key }} > /root/.ssh/authorized_keys
