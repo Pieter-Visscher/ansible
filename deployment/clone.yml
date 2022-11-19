@@ -1,0 +1,7 @@
+- hosts: proxmox
+  become: yes
+  tasks: 
+  - include_vars: ../vars/deployment.yml
+  - name: full clone vm template
+    shell: qm clone 999 {{ vmid }} --full --name {{ hostname }}
+
