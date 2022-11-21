@@ -16,13 +16,13 @@
   - name: start VM
     shell: qm start {{ vmid }}
 
-  - name: wait 5 seconds
-    ansible.builtin.pause:
-      seconds: 5 
+      # - name: wait 5 seconds
+      #ansible.builtin.pause:
+      #seconds: 5 
  
-  - name: reset vm because kernel panic at first boot for some reason
-    shell: qm reset {{ vmid }}
+      #- name: reset vm because kernel panic at first boot for some reason
+      #shell: qm reset {{ vmid }}
 
-  - name: wait 10 seconds
-    ansible.builtin.pause:
-      seconds: 10 
+      #- name: wait 10 seconds
+      #ansible.builtin.pause:
+      #seconds: 10 
