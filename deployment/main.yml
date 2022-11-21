@@ -1,0 +1,5 @@
+- hosts: proxmox
+  become: yes
+  tasks:
+    - include: clone.yml
+    - include: cloudinit.yml
