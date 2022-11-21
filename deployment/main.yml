@@ -1,5 +1,5 @@
 - hosts: proxmox
   become: yes
   tasks:
-    - include: clone.yml
-    - include: cloudinit.yml
+    - import_tasks: clone.yml
+    - import_tasks: cloudinit.yml

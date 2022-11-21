@@ -1,5 +1,3 @@
-- hosts: proxmox
-  become: yes
   tasks: 
   - name: full clone vm template
     shell: qm clone 999 {{ vmid }} --full --name {{ hostname }}
