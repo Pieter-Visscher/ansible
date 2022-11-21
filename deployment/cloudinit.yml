@@ -1,9 +1,3 @@
-- hosts: proxmox
-  become: yes
-  tasks: 
-
-  - include_vars: ../vars/deployment.yml
-
   - name: adjust disk size 
     shell: qm resize {{ vmid }} scsi0 +{{ disksize }}G
 
