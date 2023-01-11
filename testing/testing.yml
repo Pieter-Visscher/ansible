@@ -2,7 +2,7 @@
   become: yes
   vars: 
     #ansible_config_file: /home/semaphore/ansible/ansible.cfg
-      ANSIBLE_CONFIG: /home/semaphore/ansible/ansible.cfg
+    #  ANSIBLE_CONFIG: /home/semaphore/ansible/ansible.cfg
   tasks:
     - name: restart apache2
       ansible.builtin.systemd:
