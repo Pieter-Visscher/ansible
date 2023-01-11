@@ -1,4 +1,4 @@
-- hosts: testing
+- hosts: all 
   become: yes
   vars: 
     #ansible_config_file: /home/semaphore/ansible/ansible.cfg
