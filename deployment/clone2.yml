@@ -1,0 +1,13 @@
+  - name: Create a full clone of template 9999
+    community.general.proxmox_kvm:
+      node: "artoria"
+      api_user: "root@pam"
+      api_password: {{ password }}
+      api_host: "artoria"
+      clone: template
+      vmid: 9999
+      newid: {{ vmid }}
+      hostname: {{ hostname }}
+      clone_type: "full" 
+      storage: "local-zfs"
+      format: "raw"
