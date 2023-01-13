@@ -1,5 +1,5 @@
  - name: Create a full clone of template 9999
-   community.general.proxmox:
+   community.general.proxmox_kvm:
       node: "artoria"
       api_user: "root@pam"
       api_password: "{{ password }}"
