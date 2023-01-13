@@ -6,7 +6,7 @@
       api_host: "artoria"
       clone: template
       vmid: 9999
-      newid: {{ vmid }}
+      newid: "{{ vmid }}"
       hostname: "{{ hostname }}"
       clone_type: "full" 
       storage: "local-zfs"
