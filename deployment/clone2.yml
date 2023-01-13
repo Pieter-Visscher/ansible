@@ -7,7 +7,7 @@
       clone: template
       vmid: 9999
       newid: "{{ vmid }}"
-      hostname: "{{ hostname }}"
+      name: "{{ hostname }}"
         #clone_type: "full" 
       storage: "local-zfs"
       format: "raw"
