@@ -2,12 +2,12 @@
     community.general.proxmox_kvm:
       node: "artoria"
       api_user: "root@pam"
-      api_password: {{ password }}
+      api_password: "{{ password }}"
       api_host: "artoria"
       clone: template
       vmid: 9999
       newid: {{ vmid }}
-      hostname: {{ hostname }}
+      hostname: "{{ hostname }}"
       clone_type: "full" 
       storage: "local-zfs"
       format: "raw"
