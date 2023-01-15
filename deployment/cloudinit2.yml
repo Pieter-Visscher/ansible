@@ -5,7 +5,7 @@
       api_password: "{{ password }}"
       api_host: "artoria"
       vmid: "{{ vmid }}"
-      cpu: "{{ cpu }}"
+      cores: "{{ cpu }}"
       memory: "{{ mem }}"
       net:
         net0: "virtio, bridge=vmbr1, tag={{ vlanTag }}" 
