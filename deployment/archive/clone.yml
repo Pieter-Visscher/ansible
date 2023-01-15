@@ -1,0 +1,3 @@
+  - name: full clone vm template
+    shell: qm clone 9999 {{ vmid }} --full --name {{ hostname }}
+
