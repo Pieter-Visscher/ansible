@@ -21,11 +21,22 @@
       vmid: "{{ vmid }}"
       cores: "{{ cpu }}"
       memory: "{{ mem }}"
-      net:
-        net0: "virtio, tag={{ vlanTag }}" 
+        #     net:
+        # net0: "virtio, tag={{ vlanTag }}" 
       ipconfig: 
         ipconfig0: "ip={{ ipadr }},gw={{ gateway  }}"
       update: true
+
+ - name: change netadapter
+   community.general.proxmox_nic:
+     api_host: "artoria"
+     api_user: "root@pam"
+     api_password: "{{ password }}"
+     name: "{{ hostname }}"
+     vmid: "{{ vmid }}"
+     interface: net0
+     bridge: default(omit)
+     tag: "{{ vlanTag }}"
 
  - name: resize the disk
    shell: qm resize {{ vmid }} scsi0 +{{ disksize }}G
