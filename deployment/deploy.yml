@@ -36,7 +36,7 @@
      vmid: "{{ vmid }}"
      net:
        net0: "tag={{ vlanTag }}"
-     update: false
+     update: true
 
  - name: resize the disk
    shell: qm resize {{ vmid }} scsi0 +{{ disksize }}G
