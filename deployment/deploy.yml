@@ -21,8 +21,8 @@
       vmid: "{{ vmid }}"
       cores: "{{ cpu }}"
       memory: "{{ mem }}"
-      #net:
-      # net0: "virtio,tag={{ vlanTag }}" 
+      net:
+       net0: "virtio,tag={{ vlanTag }}" 
       ipconfig: 
         ipconfig0: "ip={{ ipadr }},gw={{ gateway  }}"
       update: true 
@@ -35,7 +35,7 @@
      api_host: "artoria"
      vmid: "{{ vmid }}"
      net:
-       net0: "tag={{ vlanTag }}"
+      net0: "tag={{ vlanTag }}"
      update: true
 
  - name: resize the disk
