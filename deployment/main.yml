@@ -1,5 +1,14 @@
 - hosts: proxmox
   become: yes
   tasks:
-    - import_tasks: clone.yml
-    - import_tasks: cloudinit.yml
+    - import_tasks: deploy.yml
+
+      #- hosts: localhost
+      # become: yes
+      #  tasks:
+      #    - import_tasks: hosts.yml
+     
+      #- hosts: deployed
+      #  become: yes
+      #  tasks: 
+      #    - impost_tasks: zabbixagent.yml
