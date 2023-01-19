@@ -22,7 +22,7 @@
       cores: "{{ cpu }}"
       memory: "{{ mem }}"
       net:
-        net0: "virtio, bridge=vmbr1, tag={{ vlanTag }}" 
+        net0: "virtio, tag={{ vlanTag }}" 
       ipconfig: 
         ipconfig0: "ip={{ ipadr }},gw={{ gateway  }}"
       update: true
