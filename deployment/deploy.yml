@@ -25,7 +25,7 @@
         net0: "virtio, tag={{ vlanTag }}" 
       ipconfig: 
         ipconfig0: "ip={{ ipadr }},gw={{ gateway  }}"
-      update: true
+      update: yes 
 
  - name: resize the disk
    shell: qm resize {{ vmid }} scsi0 +{{ disksize }}G
