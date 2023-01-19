@@ -22,10 +22,10 @@
       cores: "{{ cpu }}"
       memory: "{{ mem }}"
       net:
-        net0: "virtio, tag={{ vlanTag }}" 
+        net0: "virtio,tag={{ vlanTag }}" 
       ipconfig: 
         ipconfig0: "ip={{ ipadr }},gw={{ gateway  }}"
-      update: yes 
+      update: true 
 
  - name: resize the disk
    shell: qm resize {{ vmid }} scsi0 +{{ disksize }}G
