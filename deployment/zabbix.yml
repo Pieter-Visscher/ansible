@@ -1,5 +1,5 @@
 - hosts: host
-  become: yes
+  become: true 
   tasks:
     - import_tasks: zabbixagent.yml
 
