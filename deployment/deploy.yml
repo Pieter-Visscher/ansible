@@ -21,11 +21,12 @@
       vmid: "{{ vmid }}"
       cores: "{{ cpu }}"
       memory: "{{ mem }}"
-      net:
-        net0: "virtio,bridge=vmbr0,tag={{ vlanTag }}, " 
       ipconfig: 
         ipconfig0: "ip={{ ipadr }},gw={{ gateway  }}"
       update: true 
+
+ - name: set vlan tag
+   shell: qm set {{ vmid }} -net0 virtio,bridge=vmbr0,tag={{ vlanTag }}
 
  - name: resize the disk
    shell: qm resize {{ vmid }} scsi0 +{{ disksize }}G
