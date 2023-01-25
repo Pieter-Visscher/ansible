@@ -22,21 +22,10 @@
       cores: "{{ cpu }}"
       memory: "{{ mem }}"
       net:
-       net0: "virtio,tag={{ vlanTag }}" 
+        net0: "virtio,bridge=vmbr0,tag={{ vlanTag }}, " 
       ipconfig: 
         ipconfig0: "ip={{ ipadr }},gw={{ gateway  }}"
       update: true 
-
- - name: set net 0 
-   community.general.proxmox_kvm:
-     node: "artoria"
-     api_user: "root@pam"
-     api_password: "{{ password }}"
-     api_host: "artoria"
-     vmid: "{{ vmid }}"
-     net:
-      net0: "tag={{ vlanTag }}"
-     update: true
 
  - name: resize the disk
    shell: qm resize {{ vmid }} scsi0 +{{ disksize }}G
