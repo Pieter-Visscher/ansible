@@ -29,3 +29,12 @@
 
  - name: resize the disk
    shell: qm resize {{ vmid }} scsi0 +{{ disksize }}G
+
+  - name: start the vm
+    community.general.proxmox_kvm:
+      node: "artoria"
+      api_user: "root@pam"
+      api_password: "{{ password }}"
+      api_host: "artoria"
+      vmid: {{ vmid }}
+      state: started
