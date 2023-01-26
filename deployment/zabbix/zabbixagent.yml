@@ -21,4 +21,7 @@
   ansible.builtin.apt: 
     pkg:
       - zabbix-agent2
-    
+
+- name: current date
+  debug:
+    msg: "{{ ansible_date_time.data }}"
