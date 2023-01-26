@@ -2,6 +2,3 @@
    #  become: yes
    tasks:
      - import_tasks: zabbixagent.yml
-
-     - name: create  new host in zabbix
-       ansible.builtin.shell: neofetch
