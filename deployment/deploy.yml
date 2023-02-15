@@ -5,6 +5,7 @@
       api_password: "{{ password }}"
       api_host: "artoria"
       clone: template
+      clone_type: full
       vmid: 9999
       newid: "{{ vmid }}"
       name: "{{ hostname }}"
