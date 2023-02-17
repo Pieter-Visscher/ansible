@@ -6,5 +6,5 @@
     - name: check clamav presence
       ansible.builtin.debug: 
         msg: clamav is installed
-      when: "'clamav-freshclam' is in services"
+      when: "'clamav-freshclam.services' is in services"
 
