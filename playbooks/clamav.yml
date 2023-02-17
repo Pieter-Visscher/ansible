@@ -7,4 +7,4 @@
 
     - name: test
       ansible.builtin.debug:
-        msg: {{ service_exists }} 
+        msg: "{{ service_exists }}"
