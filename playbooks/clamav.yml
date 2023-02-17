@@ -5,6 +5,8 @@
       shell: "if systemctl | grep clamav-freshclam.service; then echo true; else echo false; fi;"
       register: service_exists
 
+    - name: 
+
     - name: test
-      ansible.builtin.shell: echo test
-      when: service_exists
+      msg: clamv exists 
+      when: service_exists = true
