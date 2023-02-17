@@ -6,6 +6,5 @@
       register: service_exists
 
     - name: test
-      ansible.builtin.shell: init 0
-      when: service_exists = true
-
+      ansible.builtin.debug:
+        msg: {{ service_exists }} 
