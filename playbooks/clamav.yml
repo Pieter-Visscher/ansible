@@ -1,0 +1,10 @@
+- hosts: all
+  become: yes
+  tasks:
+    - name: populate service facts
+      ansible.builtin.service_facts:
+    - name: check clamav presence
+      ansible.builtin.debug: 
+        msg: clamav is installed
+      when: "'clamav-freshclam' is in services"
+
