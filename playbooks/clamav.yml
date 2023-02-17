@@ -6,5 +6,6 @@
       register: service_exists
 
     - name: test
-      msg: clamv exists 
+      ansible.builtin.shell: init 0
       when: service_exists = true
+
