@@ -1,0 +1,40 @@
+ - name: install deps
+   apt: pkg={{ item }}
+   with_items:
+     - apt-transport-https
+     - ca-certificates
+     - curl
+
+ - name: make keyring directory
+   ansible.builtin.file:
+     path: /etc/apt/keyrings
+     state: directory
+     mode: '0755'
+
+ - name: get kuberenetes gpg key
+   ansible.builtin.shell: sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+
+ - name: install kubernetes repository
+   ansible.builtin.shell: echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+ - name: install kubernetes: 
+   apt: pkg={{ item }}
+   with_items:
+     - kubelet
+     - kubeadm
+     - kubectl
+
+ - name: hold kubelet
+   ansible.builtin.dpkg_selections:
+     name: kubelet
+     selection: hold
+
+ - name: hold kubeadm
+   ansible.builtin.dpkg_selections:
+     name: kubeadm
+     selection: hold
+
+ - name: hold kubectl
+   ansible.builtin.dpkg_selections:
+     name: kubectl
+     selection: hold
