@@ -1,0 +1,27 @@
+ - name: apt update
+   ansible.builtin.apt:
+     update_cache: yes
+     name: containerd
+
+ - name: create directory for plugin
+   ansible.builtin.file:
+     path: /opt/cni/bin
+     state: directory
+     mode: '0755'
+
+ - name: download plugins
+   ansible.builtin.get_url:
+     url: https://github.com/containernetworking/plugins/releases/download/v1.2.0/cni-plugins-linux-amd64-v1.2.0.tgz
+     dest: /opt/cni/bin/cni-plugins.tgz
+
+ - name: extract archive 
+   ansible.builtin.unarchive:
+     src: /opt/cni/bin/cni-plugins.tgz
+     dest: /opt/cni/bin/
+     remote_src: yes
+
+ - name: clear the line in the config file 
+   ansible.builtin.shell: sed -i -e '9d' /etc/containerd/config.toml
+
+ - name: make containerd use the cgroup driver
+   ansible.builtin.shell: echo "    SystemdCgroup = true" >> /etc/containerd/config.toml
