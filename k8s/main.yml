@@ -1,0 +1,13 @@
+- hosts: kubernetes 
+  become: yes
+  tasks:
+    - import_tasks: deployment/containerd.yml
+    - import_tasks: deployment/config.yml
+    - import_tasks: kubernetes.yml
+
+
+      #├── deployment
+      #│   ├── config.yml
+      #│   ├── containerd.yml
+      #│   └── kubernetes.yml
+
