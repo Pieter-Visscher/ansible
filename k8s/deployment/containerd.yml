@@ -2,6 +2,7 @@
    ansible.builtin.apt:
      update_cache: yes
      name: containerd
+     state: present
 
  - name: create directory for plugin
    ansible.builtin.file:
