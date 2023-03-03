@@ -25,3 +25,9 @@
 
  - name: make containerd use the cgroup driver
    ansible.builtin.shell: echo "    SystemdCgroup = true" >> /etc/containerd/config.toml
+
+ - name: enable and start containerd
+   ansible.builtin.systemd:
+     enabled: true
+     state: started
+     name: containerd
