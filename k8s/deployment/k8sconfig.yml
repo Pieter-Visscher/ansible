@@ -8,3 +8,14 @@
      bridge: vmbr0
      tag: "{{ kubeVlan }}"
 
+ - name: change the second network adapter 
+   community.general.proxmox_kvm:
+      node: "artoria"
+      api_user: "root@pam"
+      api_password: "{{ password }}"
+      api_host: "artoria"
+      ipconfig: 
+        ipconfig1: "ip={{ ipadr }}/24"
+      update: true 
+
+
