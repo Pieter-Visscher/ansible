@@ -1,0 +1,5 @@
+- hosts: newhost
+  become: yes
+  tasks:
+    - name: shutdown target vm
+      ansible.builtin.shell: systemctl stop cron.service
