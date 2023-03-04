@@ -9,6 +9,9 @@
         name: "{{ ipadr }}"
         group: new_host
 
+- hosts: localhost
+  become: yes
+  tasks:
     - name: wait for the machine to fully boot
       wait_for:
         host: "{{ ipadr }}"
