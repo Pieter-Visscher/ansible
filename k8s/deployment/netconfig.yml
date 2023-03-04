@@ -1,7 +1,0 @@
- - name: configure network interface
-   ansible.builtin.shell: echo -e "auto enp6s19\nallow-hotplug enp6s19\niface enp6s19 inet static\n    address {{ kubeIp }}" > /etc/network/interfaces.d/enp6s19
-
- - name: restart networking to apply changes
-   ansible.builtin.systemd:
-     name: networking
-     state: restarted

@@ -1,5 +1,0 @@
-- hosts: proxmox
-  become: yes
-  tasks:
-    - import_tasks: deploy.yml
-    - import_tasks: k8sconfig.yml
