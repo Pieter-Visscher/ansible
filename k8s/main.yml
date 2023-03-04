@@ -9,13 +9,13 @@
         name: "{{ ipadr }}"
         group: new_host
 
-- hosts: new_host
-  become: yes
-  tasks:
     - name: wait for the machine to fully boot
       wait_for:
         host: "{{ ipadr }}"
         port: 22
         delay: 10
 
+- hosts: new_host
+  become: yes
+  tasks:
     - import_tasks: deployment/netconfig.yml
