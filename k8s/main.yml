@@ -1,4 +1,4 @@
-- hosts: kubernetes 
+- hosts: newhost 
   become: yes
   tasks:
     - import_tasks: deployment/netconfig.yml
