@@ -1,0 +1,10 @@
+ - name: create nic for the vm
+   community.general.proxmox_nic:
+     api_user: "root@pam"
+     api_password: "{{ password }}"
+     api_host: "artoria"
+     vmid: "{{ vmid }}"
+     interface: net1
+     bridge: vmbr0
+     tag: "{{ kubeVlan }}"
+
