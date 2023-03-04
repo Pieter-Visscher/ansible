@@ -1,14 +1,11 @@
-- hosts: newhost 
+- hosts: proxmox
   become: yes
   tasks:
-    - import_tasks: deployment/netconfig.yml
-      #    - import_tasks: deployment/containerd.yml
-      #- import_tasks: deployment/config.yml
-      #- import_tasks: kubernetes.yml
+    - import_tasks: ../deployment/deploy.yml
+    - import_tasks: deployment/k8sconfig.yml
 
-
-      #├── deployment
-      #│   ├── config.yml
-      #│   ├── containerd.yml
-      #│   └── kubernetes.yml
+    - name: register new node
+      ansible.builtin.add_host:
+        name: "{{ ipadr }} ansible_ssh_user=root"
+        group: new_host
 
