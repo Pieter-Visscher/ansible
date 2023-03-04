@@ -6,3 +6,6 @@
 
     - name: update host file
       ansible.builtin.shell: sed -i '5i {{ targetIP }} ansible_ssh_user=root' /home/semaphore/dynamic.host
+
+    - import_tasks: shutdown.yml 
+
