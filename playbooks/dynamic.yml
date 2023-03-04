@@ -7,8 +7,8 @@
         # ansible.builtin.shell: sed -i '5i {{ targetIP }} ansible_ssh_user=root' /home/semaphore/dynamic.host
 
     - name: testing again 
-      ansible.builtin.shell: echo "{{ targetIP }}"
-      register: new_host
+      ansible_host: "{{ targetIP }}"
+      group: new_host
 
 - hosts: new_host 
   tasks:
