@@ -35,7 +35,7 @@
      tag: "{{ vlanTag }}"
 
  - name: resize the disk
-   shell: qm resize {{ vmid }} scsi0 {{ disksize }}G
+   shell: ./usr/sbin/qm resize {{ vmid }} scsi0 {{ disksize }}G
    become: yes
    become_method: su
    become_user: root
