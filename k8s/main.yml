@@ -16,4 +16,4 @@
 - hosts: new_host
   become: yes
   tasks:
-    - import_tasks: deployment/netconfig.yml
+#    - import_tasks: deployment/netconfig.yml
