@@ -34,11 +34,17 @@
      bridge: vmbr0
      tag: "{{ vlanTag }}"
 
- - name: resize the disk
-   shell: ./usr/sbin/qm resize {{ vmid }} scsi0 {{ disksize }}G
-   become: yes
-   become_method: su
-   become_user: root
+       # - name: resize the disk
+       #shell: ./usr/sbin/qm resize {{ vmid }} scsi0 {{ disksize }}G
+- name: Grow existing disk
+  community.general.proxmox_disk:
+    api_host: "artoria" 
+    api_user: root@pam
+    api_password: "{{ password }}"
+    vmid: "{{ vmid }}" 
+    disk: scsi0
+    size: "{{ disksize }}G"
+    state: resized
 
  - name: start the vm
    community.general.proxmox_kvm:
