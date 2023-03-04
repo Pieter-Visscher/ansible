@@ -21,7 +21,7 @@
       cores: "{{ cpu }}"
       memory: "{{ mem }}"
       ipconfig: 
-        ipconfig0: "ip={{ ipadr }},gw={{ gateway  }}"
+        ipconfig0: "ip={{ ipadr }}/24,gw={{ gateway  }}"
       update: true 
 
  - name: set vlan tag
