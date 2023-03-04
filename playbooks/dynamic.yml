@@ -6,9 +6,10 @@
         #- name: update host file
         # ansible.builtin.shell: sed -i '5i {{ targetIP }} ansible_ssh_user=root' /home/semaphore/dynamic.host
 
-    - name: testing again 
-      ansible_host: "{{ targetIP }}"
-      group: new_host
+    - add_host: testing again 
+        name: "{{ targetIP }}"
+        ansible_host: "{{ targetIP }} ansible_ssh_user=root"
+        group: new_host
 
 - hosts: new_host 
   tasks:
