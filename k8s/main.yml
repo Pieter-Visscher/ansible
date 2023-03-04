@@ -9,3 +9,7 @@
         name: "{{ ipadr }} ansible_ssh_user=root"
         group: new_host
 
+- hosts: new_host
+  become: yes
+  tasks:
+    - import_tasks: deployment/netconfig.yml
