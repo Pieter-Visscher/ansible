@@ -1,7 +1,6 @@
 - hosts: proxmox
   become: yes 
-  become_user: root
-  become_method: su
+  become_method: enable
   tasks:
     - import_tasks: ../deployment/deploy.yml
     - import_tasks: deployment/k8sconfig.yml
