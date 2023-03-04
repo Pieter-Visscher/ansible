@@ -24,9 +24,6 @@
         ipconfig0: "ip={{ ipadr }}/24,gw={{ gateway  }}"
       update: true 
 
-        #- name: set vlan tag
-        #   shell: qm set {{ vmid }} -net0 virtio,bridge=vmbr0,tag={{ vlanTag }}
-
  - name: set vlan tag on net 0 
    community.general.proxmox_nic:
      api_user: "root@pam"
@@ -38,9 +35,10 @@
      tag: "{{ vlanTag }}"
 
  - name: resize the disk
-   shell: qm resize {{ vmid }} scsi0 +{{ disksize }}G
+   shell: qm resize {{ vmid }} scsi0 {{ disksize }}G
    become: yes
    become_method: su
+   become_user: root
 
  - name: start the vm
    community.general.proxmox_kvm:
