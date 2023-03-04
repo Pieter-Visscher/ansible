@@ -9,7 +9,7 @@
         name: "{{ ipadr }}"
         group: new_host
 
-- hosts: localhost
+- hosts: 10.0.50.10 
   become: yes
   tasks:
     - name: wait for the machine to fully boot
