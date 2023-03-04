@@ -25,10 +25,10 @@
       update: true 
 
  - name: set vlan tag
-   shell: qm set {{ vmid }} -net0 virtio,bridge=vmbr0,tag={{ vlanTag }}
+   shell: sudo qm set {{ vmid }} -net0 virtio,bridge=vmbr0,tag={{ vlanTag }}
 
  - name: resize the disk
-   shell: qm resize {{ vmid }} scsi0 +{{ disksize }}G
+   shell: sudo qm resize {{ vmid }} scsi0 +{{ disksize }}G
 
  - name: start the vm
    community.general.proxmox_kvm:
