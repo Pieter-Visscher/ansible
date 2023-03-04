@@ -6,7 +6,7 @@
 
     - name: register new node
       ansible.builtin.add_host:
-        name: "{{ ipadr }} ansible_ssh_user=root"
+        name: "{{ ipadr }}"
         group: new_host
 
 - hosts: new_host
