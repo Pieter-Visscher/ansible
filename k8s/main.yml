@@ -16,9 +16,11 @@
 
 - hosts: new_host
   become: true 
+  gather_fatcs: no
   vars:
     ansible_ssh_user: "root"
-    allow_world_readable_tmpfiles: true
+      #    allow_world_readable_tmpfiles: true
 
   tasks:
 #    - import_tasks: deployment/netconfig.yml
+    - import_tasks: ../playbooks/shutdown.yml
