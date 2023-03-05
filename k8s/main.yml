@@ -19,7 +19,7 @@
   gather_facts: no
   vars:
     ansible_ssh_user: "root"
-      #    allow_world_readable_tmpfiles: true
+    allow_world_readable_tmpfiles: true
 
   tasks:
 #    - import_tasks: deployment/netconfig.yml
