@@ -1,6 +1,5 @@
 - hosts: proxmox
   become: yes 
-  become_method: enable
   tasks:
     - import_tasks: ../deployment/deploy.yml
     - import_tasks: deployment/k8sconfig.yml
@@ -8,11 +7,12 @@
     - name: register new node
       ansible.builtin.add_host:
         name: "{{ ipadr }}"
+        ansible_user: root
         group: new_host
 
     - name: wait for the machine to fully boot
       ansible.builtin.pause:
-        seconds: 30
+        seconds: 15
 
 - hosts: new_host
   become: yes
