@@ -21,5 +21,5 @@
 
   tasks:
     - import_tasks: install/config.yml
-    - import_tasks: containerd.yml
-    - import_tasks: kubernetes.yml
+    - import_tasks: install/containerd.yml
+    - import_tasks: install/kubernetes.yml
