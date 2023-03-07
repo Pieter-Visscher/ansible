@@ -16,7 +16,7 @@
       api_host: "artoria"
       vmid: "{{ vmid }}" 
       ipconfig: 
-        ipconfig1: "ip={{ ipadr }}/24"
+        ipconfig1: "ip={{ kubeIp }}/24"
       update: true 
 
 
