@@ -20,4 +20,6 @@
     ansible_ssh_user: "root"
 
   tasks:
-    - import_tasks: ../playbooks/shutdown.yml
+    - import_tasks: install/config.yml
+    - import_tasks: containerd.yml
+    - import_tasks: kubernetes.yml
