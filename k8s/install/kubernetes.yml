@@ -17,7 +17,7 @@
  - name: install kubernetes repository
    ansible.builtin.shell: echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
- - name: install kubernetes: 
+ - name: install kubernetes 
    apt: pkg={{ item }}
    with_items:
      - kubelet
