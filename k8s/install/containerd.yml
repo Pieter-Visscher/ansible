@@ -33,7 +33,7 @@
    apt: pkg={{ item }}
    with_items:
      - containerd
-     - containerd.io
+       #    - containerd.io
 
  - name: create directory for plugin
    ansible.builtin.file:
