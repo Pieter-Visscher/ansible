@@ -51,8 +51,8 @@
      dest: /opt/cni/bin/
      remote_src: yes
 
-  - name: clear the line in the config file 
-    ansible.builtin.shell: sed -i -e '15d' /etc/containerd/config.toml
+ - name: clear the line in the config file 
+   ansible.builtin.shell: sed -i -e '15d' /etc/containerd/config.toml
 
  - name: make containerd use the cgroup driver
    ansible.builtin.shell: echo "    SystemdCgroup = true" >> /etc/containerd/config.toml
