@@ -13,26 +13,20 @@
      name: net.bridge.bridge-nf-call-iptables
      value: '1'
      sysctl_file: /etc/sysctl.d/k8s.conf
-     sysctl_set: true
      state: present
-     reload: true
 
  - name: set netbridge-nf-call-ip6tables
    ansible.posix.sysctl:
      name: net.bridge.bridge-nf-call-ip6tabels
      value: '1'
      sysctl_file: /etc/sysctl.d/k8s.conf
-     sysctl_set: true
      state: present
-     reload: true
 
  - name: enable ip forwarding
    ansible.posix.sysctl:
      name: net.ipv4.ip_forward
      value: '1'
-     sysctl_set: true
      state: present
-     reload: true
 
  - name: reload systemd
    ansible.builtin.shell: sysctl -system
