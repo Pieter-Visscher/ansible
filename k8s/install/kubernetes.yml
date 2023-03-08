@@ -1,16 +1,3 @@
- - name: install deps
-   apt: pkg={{ item }}
-   with_items:
-     - apt-transport-https
-     - ca-certificates
-     - curl
-
- - name: make keyring directory
-   ansible.builtin.file:
-     path: /etc/apt/keyrings
-     state: directory
-     mode: '0755'
-
  - name: get kuberenetes gpg key
    ansible.builtin.shell: sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 
