@@ -7,20 +7,21 @@
    ansible.builtin.file:
      path: /etc/sysctl.d/k8s.conf
      state: touch 
+     mode: 0622
 
  - name: set netbridge-nf-call-iptables
    ansible.posix.sysctl:
      name: net.bridge.bridge-nf-call-iptables
      value: '1'
-     sysctl_file: /etc/sysctl.d/k8s.conf
      state: present
+     sysctl_file: /etc/sysctl.d/k8s.conf
 
  - name: set netbridge-nf-call-ip6tables
    ansible.posix.sysctl:
      name: net.bridge.bridge-nf-call-ip6tabels
      value: '1'
-     sysctl_file: /etc/sysctl.d/k8s.conf
      state: present
+     sysctl_file: /etc/sysctl.d/k8s.conf
 
  - name: enable ip forwarding
    ansible.posix.sysctl:
