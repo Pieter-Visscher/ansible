@@ -20,13 +20,23 @@
    ansible.builtin.shell: echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
- - name: apt update
-   ansible.builtin.apt:
-     update_cache: yes
-     name: containerd
-     state: present
  
+  # doing it the dirty way because ansible.builtin.apt has a habit of failing
+ - name: apt update
+   ansible.builtin.shell: apt update
+
+     #- name: apt update
+     #ansible.builtin.apt:
+     #update_cache: yes
+     #name: containerd
+     #state: present
+ 
+ - name: install deps
+   apt: pkg={{ item }}
+   with_items:
+     - containerd
+     - containerd.io
+
  - name: create directory for plugin
    ansible.builtin.file:
      path: /opt/cni/bin
