@@ -1,9 +1,9 @@
  - name: Create a full clone of template 9999
    community.general.proxmox_kvm:
-      node: "artoria"
-      api_user: "root@pam"
+      node: "{{ hostname }}"
+      api_user: "{{ user }}"
       api_password: "{{ password }}"
-      api_host: "artoria"
+      api_host: "{{ hostname }}"
       clone: template
       vmid: 9999
       newid: "{{ vmid }}"
@@ -13,10 +13,10 @@
 
  - name: modify vm to specified specs 
    community.general.proxmox_kvm:
-      node: "artoria"
-      api_user: "root@pam"
+      node: "{{ hostname }}"
+      api_user: "{{ user }}"
       api_password: "{{ password }}"
-      api_host: "artoria"
+      api_host: "{{ hostname }}"
       vmid: "{{ vmid }}"
       cores: "{{ cpu }}"
       memory: "{{ mem }}"
@@ -26,9 +26,9 @@
 
  - name: set vlan tag on net 0 
    community.general.proxmox_nic:
-     api_user: "root@pam"
+     api_user: "{{ user }}"
      api_password: "{{ password }}"
-     api_host: "artoria"
+     api_host: "{{ hostname }}"
      vmid: "{{ vmid }}"
      interface: net0
      bridge: vmbr0
@@ -38,8 +38,8 @@
        #shell: ./usr/sbin/qm resize {{ vmid }} scsi0 {{ disksize }}G
  - name: Grow existing disk
    community.general.proxmox_disk:
-     api_host: "artoria" 
-     api_user: root@pam
+     api_host: "{{ hostname }}" 
+     api_user: "{{ user }}"
      api_password: "{{ password }}"
      vmid: "{{ vmid }}" 
      disk: scsi0
@@ -48,9 +48,9 @@
 
  - name: start the vm
    community.general.proxmox_kvm:
-     node: "artoria"
-     api_user: "root@pam"
+     node: "{{ hostname }}"
+     api_user: "{{ user }}"
      api_password: "{{ password }}"
-     api_host: "artoria"
+     api_host: "{{ hostname }}"
      vmid: "{{ vmid }}"
      state: started
