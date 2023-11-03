@@ -31,11 +31,9 @@
      api_host: "{{ host }}"
      vmid: "{{ vmid }}"
      interface: net0
-     bridge: vmbr0
+     bridge: "{{ vmbr }}"
      tag: "{{ vlanTag }}"
 
-       # - name: resize the disk
-       #shell: ./usr/sbin/qm resize {{ vmid }} scsi0 {{ disksize }}G
  - name: Grow existing disk
    community.general.proxmox_disk:
      api_host: "{{ host }}" 
