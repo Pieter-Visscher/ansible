@@ -31,7 +31,7 @@
      api_host: "{{ host }}"
      vmid: "{{ vmid }}"
      interface: net0
-     bridge: "{{ vmbr }}"
+       ##    bridge: "{{ vmbr }}"
      tag: "{{ vlanTag }}"
 
  - name: Grow existing disk
